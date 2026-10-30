@@ -1,0 +1,20 @@
+%%{init: {"theme":"base","flowchart":{"wrappingWidth":460,"nodeSpacing":30,"rankSpacing":38},"themeVariables":{"fontFamily":"Arial","fontSize":"15px","lineColor":"#334155"}}}%%
+flowchart TB
+    RAW[("<b>Raw Dataset</b><br/>data/raw/automobileEDA_dirty_training.csv<br/>205 baris x 30 kolom")]
+    LOADD["<span style='color:#0369a1'><b>EXTRACT</b></span><br/><b>Load Data</b> · baca_dataset()<br/>membaca CSV mentah ke DataFrame"]
+    INS["<span style='color:#b45309'><b>TRANSFORM</b></span><br/><b>Data Inspection</b> · inspeksi_dataset()<br/>ukuran, tipe data, missing values, duplikat, format tidak konsisten"]
+    CLN["<span style='color:#b45309'><b>TRANSFORM</b></span><br/><b>Data Cleaning</b> · bersihkan_dataset()<br/>seragamkan teks · standarisasi tanggal · hapus duplikat<br/>perbaiki nilai tidak wajar · tangani missing values<br/>hasil: 198 baris x 30 kolom"]
+    TRF["<span style='color:#b45309'><b>TRANSFORM</b></span><br/><b>Data Transformation</b> · transformasi_dataset()<br/>Min-Max Scaling · One-Hot Encoding · Ordinal Encoding<br/>hasil: 198 baris x 43 kolom"]
+    SAVE["<span style='color:#15803d'><b>LOAD</b></span><br/><b>Save Data</b> · simpan_dataset()<br/>menulis CSV + verifikasi baca ulang"]
+    OUT[("<b>Processed Dataset</b><br/>data/processed/automobileEDA_processed.csv<br/>198 baris x 43 kolom")]
+
+    RAW --> LOADD --> INS --> CLN --> TRF --> SAVE --> OUT
+
+    classDef data fill:#e0f2fe,stroke:#0369a1,stroke-width:2px,color:#0c4a6e
+    classDef ext fill:#ffffff,stroke:#0369a1,stroke-width:1.5px,color:#0f172a
+    classDef tr fill:#fffbeb,stroke:#b45309,stroke-width:1.5px,color:#0f172a
+    classDef ld fill:#f0fdf4,stroke:#15803d,stroke-width:1.5px,color:#0f172a
+    class RAW,OUT data
+    class LOADD ext
+    class INS,CLN,TRF tr
+    class SAVE ld
