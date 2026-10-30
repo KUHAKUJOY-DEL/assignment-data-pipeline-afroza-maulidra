@@ -3,7 +3,7 @@
 Pipeline ETL berbasis Python (Pandas dan NumPy) yang mengubah dataset otomotif mentah dan "kotor" (`automobileEDA_dirty_training.csv`) menjadi dataset bersih dan tertransformasi (`automobileEDA_processed.csv`) yang siap untuk analisis lanjutan.
 
 > Individual Assignment: **Data Engineering: Pipeline & Preparation**
-> Peserta: `<AFROZA MAULIDRA IFTIKHAR ZUHRI>`
+> Peserta: AFROZA MAULIDRA IFTIKHAR ZUHRI
 
 ---
 
